@@ -1,0 +1,446 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a2e; 
+  color: #f0f0f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+header {
+  z-index: 1000;
+  pointer-events: none;
+}
+
+header .navbar {
+  pointer-events: auto;
+}
+
+.header-pill {
+  background: linear-gradient(90deg, #16213e 0%, #5e2a99 100%);
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 600; 
+  font-size: 15px;
+  padding: 10px 15px;
+  margin: 0 2px;
+  z-index: 2;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e0c3fc !important;
+}
+
+.navbar-nav .nav-link.active-link {
+  text-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+}
+
+#marker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  background-color: #8a2be2;
+  border-radius: 25px;
+  z-index: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+.navbar-nav {
+  position: relative;
+}
+
+#download-button {
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: #dc3545;
+  border: none;
+  transition: all 0.3s;
+}
+
+#download-button:hover {
+  background-color: #ff4d5e;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+}
+
+@media (max-width: 991px) {
+  .header-pill {
+    border-radius: 20px;
+    padding: 15px 20px;
+    background: linear-gradient(180deg, #0f0f1a 0%, #4b0082 100%);
+    border: 1px solid rgba(138, 43, 226, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  }
+
+  .navbar-collapse {
+    margin-top: 10px;
+    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    padding-top: 10px;
+  }
+
+  .navbar-nav .nav-link {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+  }
+
+  .navbar-nav .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav.ms-lg-3 {
+    margin-left: 0 !important;
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  #marker {
+    display: none !important;
+  }
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #ce9aff;
+  font-size: 50px;
+  font-weight: 700;
+  margin-top: 100px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #ce9aff;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #8a2be2;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+
+
+.neon-text {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: transparent; 
+
+  background: linear-gradient(
+    120deg, 
+    #ce9aff 0%, 
+    #ffffff 50%, 
+    #ce9aff 100%
+  );
+  
+  /* On double la taille du fond pour pouvoir le faire défiler */
+  background-size: 200% auto;
+  
+  /* Découpage du fond sur le texte uniquement */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Ombre portée pour l'effet néon/relief */
+  filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5));
+  
+  /* Animation linéaire (vitesse constante) et infinie */
+  animation: infinite-flow 3s linear infinite;
+}
+
+/* L'animation déplace le fond de 0% à 200% de manière constante */
+@keyframes infinite-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+#hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #2e2145 0%, #0f0f1a 80%);
+  flex-direction: column;
+  text-align: center;
+  padding-top: 80px;
+}
+
+#hero img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
+}
+
+.home-section {
+  padding: 80px 20px;
+  background: radial-gradient(circle at center, #251b36 0%, #16161d 90%);
+}
+
+.home-limit-width {
+  max-width: 950px;
+  margin: 0 auto;   
+  width: 100%;
+}
+
+.photo-container {
+  width: 100%;
+  height: 100%; 
+  min-height: 300px;
+}
+
+.home-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px 0 0 15px;
+  border: 2px solid rgba(138, 43, 226, 0.4);
+  border-right: none; 
+  box-shadow: -10px 10px 30px rgba(0,0,0,0.4);
+}
+
+.home-content {
+  height: 100%; 
+  display: flex;
+  align-items: center; 
+  font-size: 1.1rem; 
+  line-height: 1.7;
+  color: #f1f1f1;
+  background: rgba(40, 30, 60, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 0 15px 15px 0;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-left: none;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .home-section {
+    padding: 60px 20px;
+  }
+  .home-limit-width {
+    max-width: 100%;
+  }
+  .photo-container {
+    height: auto; 
+    min-height: auto;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .home-photo {
+    width: 260px;
+    height: 260px;
+    border-radius: 15px; 
+    border: 2px solid rgba(138, 43, 226, 0.4);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
+  .home-content {
+    border-radius: 15px;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    background: rgba(40, 30, 60, 0.4);
+    padding: 20px 20px;  
+    font-size: 0.95rem;  
+    line-height: 1.6;
+  }
+}
+
+#graph, #dev, #montage {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  background: radial-gradient(circle at center, #251b36 0%, #16161d 90%);
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 80vw;
+  height: 100%;
+  margin: auto;
+}
+
+.carousel-inner img, .carousel-inner a img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-inner img.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.carousel-controls button {
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-controls button:hover {
+  background: blueviolet;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.carousel-dots button {
+  background-color: white;
+  border: none;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.carousel-dots button.active {
+  opacity: 1;
+  background-color: blueviolet;
+}
+
+.description-btn {
+  margin-top: 20px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+}
+
+.description-btn:hover {
+  transform: scale(1.05);
+  background-color: #9b4dff;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #1e1e24;
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: white;
+}
