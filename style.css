@@ -8,7 +8,7 @@ body {
   padding: 0;
   background-color: #0b111e; 
   color: #f0f0f0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Thundara', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -180,7 +180,7 @@ h2::after {
 }
 
 /* =========================================
-   SECTIONS AVEC REPRODUCTION MIROIR UNIQUE DU FOND
+   SECTIONS AVEC MOTIF FLOU INTERCONNECTÉ ALTERNÉ (MIROIR VISUEL)
    ========================================= */
 
 #hero {
@@ -219,42 +219,18 @@ h2::after {
   overflow: hidden;
 }
 
-/* À propos : Gestion de la superposition miroir (1ère normale, 2ème inversée) */
 .home-section::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    linear-gradient(rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)), /* Calque couleur pour l'image du haut */
-    url('img/background_portfolio.png'),                           /* 1ère image (Haut - Normale) */
-    linear-gradient(rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)); /* Calque couleur pour le fond général si besoin */
-  background-position: 
-    top center,
-    top center,
-    bottom center;
-  background-size: 
-    100% 100%,
-    100% 50%,   /* Prend la moitié supérieure */
-    100% 100%;
-  background-repeat: no-repeat;
+  background: 
+    linear-gradient(to bottom, rgba(10, 17, 40, 0.9) 0%, rgba(0, 29, 61, 0.4) 50%, rgba(10, 17, 40, 0.9) 100%),
+    url('img/background_portfolio.png');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: top center;
   filter: blur(5px);
-  z-index: -2;
-}
-
-/* Ajout de la deuxième image inversée en arrière-plan via un second pseudo-élément */
-.home-section::after {
-  content: "";
-  position: absolute;
-  top: 50%; left: 0; right: 0; bottom: 0; /* Commence à la moitié de la section */
-  background-image: 
-    linear-gradient(to top, rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)), 
-    url('img/background_portfolio.png'); /* 2ème image (Bas - Inversée) */
-  background-position: center bottom;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  transform: scaleY(-1); /* Seule la deuxième image est inversée verticalement */
-  filter: blur(5px);
-  z-index: -1;
+  z-index: 0;
 }
 
 .home-section .container {
@@ -272,41 +248,51 @@ h2::after {
   background: transparent !important;
 }
 
-/* Audiovisuel : 1ère image (Haut) - Normale */
 #montage::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    linear-gradient(rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)),
+  background: 
+    linear-gradient(to top, rgba(10, 17, 40, 0.9) 0%, rgba(0, 29, 61, 0.4) 50%, rgba(10, 17, 40, 0.9) 100%),
     url('img/background_portfolio.png');
-  background-position: top center;
-  background-size: 100% 50%; /* Occupe précisément les premiers 50% de hauteur */
-  background-repeat: no-repeat;
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: bottom center;
+  transform: scaleY(-1); 
   filter: blur(5px);
-  z-index: -2;
-}
-
-/* Audiovisuel : 2ème image (Bas) - Uniquement celle-ci est inversée de haut en bas */
-#montage::after {
-  content: "";
-  position: absolute;
-  top: 50%; left: 0; right: 0; bottom: 0; /* S'active sur la seconde moitié de l'écran */
-  background-image: 
-    linear-gradient(to top, rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)),
-    url('img/background_portfolio.png');
-  background-position: center bottom;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  transform: scaleY(-1); /* Retournement vertical appliqué uniquement ici */
-  filter: blur(5px);
-  z-index: -1;
+  z-index: 0;
 }
 
 #montage .container {
   position: relative;
   z-index: 1;
 }
+
+/* ---- AJOUT RESPONSIVE POUR LES IMAGES DE FOND SUR MOBILE ---- */
+@media (max-width: 767px) {
+  #hero::before {
+    background: linear-gradient(rgba(10, 17, 40, 0.75), rgba(0, 29, 61, 0.65)), url('img/background_mobile.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .home-section::before {
+    background: 
+      linear-gradient(to bottom, rgba(10, 17, 40, 0.9) 0%, rgba(0, 29, 61, 0.4) 50%, rgba(10, 17, 40, 0.9) 100%),
+      url('img/background_mobile.png');
+    background-size: cover; /* 'cover' est souvent plus adapté sur mobile pour éviter les répétitions disgracieuses */
+    background-position: center;
+  }
+
+  #montage::before {
+    background: 
+      linear-gradient(to top, rgba(10, 17, 40, 0.9) 0%, rgba(0, 29, 61, 0.4) 50%, rgba(10, 17, 40, 0.9) 100%),
+      url('img/background_mobile.png');
+    background-size: cover;
+    background-position: center;
+  }
+}
+/* ------------------------------------------------------------- */
 
 /* =========================================
    SUITE DES STYLES DE COMPOSANTS
