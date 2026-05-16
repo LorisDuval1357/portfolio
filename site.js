@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "Elbeuf - Au fil du Temps : Logo pour une exposition immersive."
     ],
     dev: [
-      "Site Foodtruck : Thème Super Smash Bros.",
+      "Site Foodtruck : Thème Super Smash Bros. (Attention ne fonctionne pas sur mobile)",
       "Page de connexion : Interface PHP/MySQL.",
       "Liste des événements : Gestion du panier et réservations.",
       "Interface Administrateur : Back-office de gestion."

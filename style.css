@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #1a1a2e; 
+  background-color: #0b111e; 
   color: #f0f0f0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
@@ -23,7 +23,7 @@ header .navbar {
 }
 
 .header-pill {
-  background: linear-gradient(90deg, #16213e 0%, #5e2a99 100%);
+  background: linear-gradient(90deg, #0d1b2a 0%, #0077b6 100%);
   border-radius: 50px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -43,11 +43,11 @@ header .navbar {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #e0c3fc !important;
+  color: #90e0ef !important;
 }
 
 .navbar-nav .nav-link.active-link {
-  text-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+  text-shadow: 0 0 15px rgba(0, 180, 216, 0.8);
 }
 
 #marker {
@@ -55,13 +55,13 @@ header .navbar {
   top: 50%;
   transform: translateY(-50%);
   height: 80%;
-  background-color: #8a2be2;
+  background-color: #00b4d8;
   border-radius: 25px;
   z-index: 0;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0;
   pointer-events: none;
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.4);
 }
 
 .navbar-nav {
@@ -86,21 +86,21 @@ header .navbar {
   .header-pill {
     border-radius: 20px;
     padding: 15px 20px;
-    background: linear-gradient(180deg, #0f0f1a 0%, #4b0082 100%);
-    border: 1px solid rgba(138, 43, 226, 0.4);
+    background: linear-gradient(180deg, #0a1128 0%, #001f54 100%);
+    border: 1px solid rgba(0, 180, 216, 0.4);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
   }
 
   .navbar-collapse {
     margin-top: 10px;
-    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    border-top: 1px solid rgba(0, 180, 216, 0.3);
     padding-top: 10px;
   }
 
   .navbar-nav .nav-link {
     text-align: left;
     padding: 12px 10px;
-    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
   }
 
   .navbar-nav .nav-link:last-child {
@@ -122,7 +122,7 @@ h1 {
   text-align: center;
   width: 100%;
   display: block;
-  color: #ce9aff;
+  color: #90e0ef;
   font-size: 50px;
   font-weight: 700;
   margin-top: 100px;
@@ -133,7 +133,7 @@ h2 {
   text-align: center;
   width: 100%;
   display: block;
-  color: #ce9aff;
+  color: #90e0ef;
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 40px;
@@ -145,13 +145,11 @@ h2::after {
   display: block;
   width: 60px;
   height: 3px;
-  background: #8a2be2;
+  background: #00b4d8;
   margin: 10px auto 0;
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
 }
-
-
 
 .neon-text {
   font-weight: bold;
@@ -160,26 +158,18 @@ h2::after {
 
   background: linear-gradient(
     120deg, 
-    #ce9aff 0%, 
+    #90e0ef 0%, 
     #ffffff 50%, 
-    #ce9aff 100%
+    #90e0ef 100%
   );
   
-  /* On double la taille du fond pour pouvoir le faire défiler */
   background-size: 200% auto;
-  
-  /* Découpage du fond sur le texte uniquement */
   -webkit-background-clip: text;
   background-clip: text;
-  
-  /* Ombre portée pour l'effet néon/relief */
-  filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.5));
-  
-  /* Animation linéaire (vitesse constante) et infinie */
+  filter: drop-shadow(0 0 5px rgba(0, 180, 216, 0.5));
   animation: infinite-flow 3s linear infinite;
 }
 
-/* L'animation déplace le fond de 0% à 200% de manière constante */
 @keyframes infinite-flow {
   0% {
     background-position: 0% 50%;
@@ -189,28 +179,138 @@ h2::after {
   }
 }
 
+/* =========================================
+   SECTIONS AVEC REPRODUCTION MIROIR UNIQUE DU FOND
+   ========================================= */
+
 #hero {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at center, #2e2145 0%, #0f0f1a 80%);
   flex-direction: column;
   text-align: center;
   padding-top: 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-#hero img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(10, 17, 40, 0.75), rgba(0, 29, 61, 0.65)), url('img/background_portfolio.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(7px); 
+  transform: scale(1.05); 
+  z-index: 0;
+}
+
+#hero .hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .home-section {
   padding: 80px 20px;
-  background: radial-gradient(circle at center, #251b36 0%, #16161d 90%);
+  position: relative;
+  overflow: hidden;
 }
+
+/* À propos : Gestion de la superposition miroir (1ère normale, 2ème inversée) */
+.home-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)), /* Calque couleur pour l'image du haut */
+    url('img/background_portfolio.png'),                           /* 1ère image (Haut - Normale) */
+    linear-gradient(rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)); /* Calque couleur pour le fond général si besoin */
+  background-position: 
+    top center,
+    top center,
+    bottom center;
+  background-size: 
+    100% 100%,
+    100% 50%,   /* Prend la moitié supérieure */
+    100% 100%;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  z-index: -2;
+}
+
+/* Ajout de la deuxième image inversée en arrière-plan via un second pseudo-élément */
+.home-section::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 0; right: 0; bottom: 0; /* Commence à la moitié de la section */
+  background-image: 
+    linear-gradient(to top, rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)), 
+    url('img/background_portfolio.png'); /* 2ème image (Bas - Inversée) */
+  background-position: center bottom;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: scaleY(-1); /* Seule la deuxième image est inversée verticalement */
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.home-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Montage (Audiovisuel) */
+#montage {
+  position: relative;
+  width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+/* Audiovisuel : 1ère image (Haut) - Normale */
+#montage::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)),
+    url('img/background_portfolio.png');
+  background-position: top center;
+  background-size: 100% 50%; /* Occupe précisément les premiers 50% de hauteur */
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  z-index: -2;
+}
+
+/* Audiovisuel : 2ème image (Bas) - Uniquement celle-ci est inversée de haut en bas */
+#montage::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 0; right: 0; bottom: 0; /* S'active sur la seconde moitié de l'écran */
+  background-image: 
+    linear-gradient(to top, rgba(10, 17, 40, 0.85), rgba(0, 29, 61, 0.75)),
+    url('img/background_portfolio.png');
+  background-position: center bottom;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: scaleY(-1); /* Retournement vertical appliqué uniquement ici */
+  filter: blur(5px);
+  z-index: -1;
+}
+
+#montage .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   SUITE DES STYLES DE COMPOSANTS
+   ========================================= */
 
 .home-limit-width {
   max-width: 950px;
@@ -229,7 +329,7 @@ h2::after {
   height: 100%;
   object-fit: cover;
   border-radius: 15px 0 0 15px;
-  border: 2px solid rgba(138, 43, 226, 0.4);
+  border: 2px solid rgba(0, 180, 216, 0.4);
   border-right: none; 
   box-shadow: -10px 10px 30px rgba(0,0,0,0.4);
 }
@@ -241,11 +341,11 @@ h2::after {
   font-size: 1.1rem; 
   line-height: 1.7;
   color: #f1f1f1;
-  background: rgba(40, 30, 60, 0.3);
+  background: rgba(13, 27, 42, 0.4);
   backdrop-filter: blur(10px);
   padding: 40px;
   border-radius: 0 15px 15px 0;
-  border: 1px solid rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(0, 180, 216, 0.3);
   border-left: none;
   text-align: left;
 }
@@ -267,25 +367,26 @@ h2::after {
     width: 260px;
     height: 260px;
     border-radius: 15px; 
-    border: 2px solid rgba(138, 43, 226, 0.4);
+    border: 2px solid rgba(0, 180, 216, 0.4);
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
   }
   .home-content {
     border-radius: 15px;
-    border: 1px solid rgba(138, 43, 226, 0.3);
-    background: rgba(40, 30, 60, 0.4);
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    background: rgba(13, 27, 42, 0.5);
     padding: 20px 20px;  
     font-size: 0.95rem;  
     line-height: 1.6;
   }
 }
 
-#graph, #dev, #montage {
+/* Sections Graph et Dev uniquement (Fond dégradé radial) */
+#graph, #dev {
   position: relative;
   width: 100%;
   padding: 80px 20px;
   text-align: center;
-  background: radial-gradient(circle at center, #251b36 0%, #16161d 90%);
+  background: radial-gradient(circle at center, #001d3d 0%, #0a1128 90%);
 }
 
 .carousel {
@@ -352,7 +453,7 @@ h2::after {
 }
 
 .carousel-controls button:hover {
-  background: blueviolet;
+  background: #00b4d8;
 }
 
 .carousel-dots {
@@ -377,12 +478,12 @@ h2::after {
 
 .carousel-dots button.active {
   opacity: 1;
-  background-color: blueviolet;
+  background-color: #00b4d8;
 }
 
 .description-btn {
   margin-top: 20px;
-  background-color: blueviolet;
+  background-color: #00b4d8;
   color: white;
   border: none;
   padding: 10px 25px;
@@ -390,12 +491,13 @@ h2::after {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s;
-  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
 }
 
 .description-btn:hover {
   transform: scale(1.05);
-  background-color: #9b4dff;
+  background-color: #90e0ef;
+  color: #0b111e;
 }
 
 .modal {
@@ -417,18 +519,18 @@ h2::after {
 }
 
 .modal-content {
-  background-color: #1e1e24;
+  background-color: #0d1b2a;
   color: white;
   padding: 40px;
   border-radius: 10px;
   max-width: 600px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.2);
   position: relative;
   font-size: 1.1rem;
   line-height: 1.6;
-  border: 1px solid rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(0, 180, 216, 0.2);
 }
 
 .close-button {
