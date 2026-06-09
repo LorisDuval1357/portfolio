@@ -85,10 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "Elbeuf - Au fil du Temps : Logo pour une exposition immersive."
     ],
     dev: [
-      "Site Foodtruck : Thème Super Smash Bros. (Attention ne fonctionne pas sur mobile)",
-      "Page de connexion : Interface PHP/MySQL.",
-      "Liste des événements : Gestion du panier et réservations.",
-      "Interface Administrateur : Back-office de gestion."
+      "Voici le premier site web que j'ai eu l'occasion de produire dans le cadre de mes études: un site web pour un Foodtruck fictif sur le thème du jeu vidéo Super Smash Bros. (Attention site web non responsive, il ne fonctionne pas sur mobile)",
+      "Voici une page de connexion pour une billeterie: les profils sont stockés dans une base de données. Il y a des profils utilisateurs ainsi que des profils administrateurs.",
+      "Voici un accès à une liste d'événements implémentés dans une base de données, ici nous avons l'interface utilisateur qui permet la gestion du panier et des réservations.",
+      "Voici l'interface Administrateur de la billeterie: l'administrateur à la possibilité d'ajouter/supprimer des évènements."
     ]
   };
 
