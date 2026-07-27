@@ -531,3 +531,84 @@ h2::after {
 .close-button:hover {
   color: white;
 }
+
+/* =========================================
+   BLOC PROJET (Description + Carrousel)
+   ========================================= */
+
+.project-showcase {
+  margin-top: 60px;
+  max-width: 1100px;
+}
+
+.project-info {
+  background: rgba(13, 27, 42, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  border-radius: 15px;
+  padding: 35px;
+  text-align: left;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.project-info h3 {
+  color: #90e0ef;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.project-info p {
+  color: #f0f0f0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.project-carousel-col {
+  text-align: center;
+}
+
+.project-carousel {
+  height: 60vh;
+  max-height: 560px;
+}
+
+/* Les points de pagination sortent du cadre du carrousel pour ne plus
+   cacher le bas des images, et sont replacés juste en dessous. */
+.project-carousel-col .carousel-dots {
+  position: static;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.project-carousel-col .description-btn {
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .project-showcase {
+    margin-top: 40px;
+  }
+
+  .project-carousel {
+    height: 55vh;
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 767px) {
+  .project-info {
+    padding: 25px;
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-info p {
+    font-size: 0.95rem;
+  }
+}

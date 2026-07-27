@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = carousel.querySelectorAll("img, video, .carousel-inner > a > img");
     const prevBtn = carousel.querySelector(".prev");
     const nextBtn = carousel.querySelector(".next");
-    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const dotsContainer = carousel.querySelector(".carousel-dots") || carousel.parentElement.querySelector(".carousel-dots");
 
     if (slides.length === 0) return;
 
@@ -89,6 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
       "Voici une page de connexion pour une billeterie: les profils sont stockés dans une base de données. Il y a des profils utilisateurs ainsi que des profils administrateurs.",
       "Voici un accès à une liste d'événements implémentés dans une base de données, ici nous avons l'interface utilisateur qui permet la gestion du panier et des réservations.",
       "Voici l'interface Administrateur de la billeterie: l'administrateur à la possibilité d'ajouter/supprimer des évènements."
+    ],
+    flowork: [
+      "Logo de Flowork, l'application d'accompagnement RSE en entreprise par la gamification.",
+      "Page de connexion : l'utilisateur se connecte avec son adresse mail et son mot de passe.",
+      "Page d'inscription : création d'un compte rattaché à une entreprise.",
+      "Page d'accueil : niveau et progression de l'utilisateur, défis du jour et statistiques de l'entreprise.",
+      "Page des défis : défis du jour, de la semaine et du mois (coopératif) avec suivi de la progression.",
+      "Classement des employés d'une même entreprise, basé sur les points cumulés.",
+      "Classement des entreprises participantes, avec le nombre de points cumulés et de participants actifs.",
+      "Vue du classement côté administrateur, avec gestion des profils et des rôles.",
+      "Statistiques globales de l'entreprise : niveau, employés inscrits, défis actifs, CO2 économisé et badges obtenus.",
+      "Interface Administrateur permettant de gérer les employés et de suivre leur progression.",
+      "Page de profil utilisateur : niveau, points, succès récents et gestion du compte."
     ]
   };
 
